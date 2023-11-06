@@ -1,2 +1,2 @@
-# Yori_Docs_Flask
-yori docs project
+#Cookify_Flask
+Cookify project
