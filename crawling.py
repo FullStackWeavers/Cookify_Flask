@@ -65,3 +65,29 @@ def crawl_recipe_list():
         print('Error:', response.status_code)
 
     return recipe_list
+
+def get_recipe_items(url):
+    response = requests.get(url)
+
+    if response.status_code == 200:
+        soup = BeautifulSoup(response.text, 'html.parser')
+        recipe_items = soup.find_all('a', class_='thumbnail')
+        return recipe_items
+    else:
+        return []
+
+def get_all_recipe_items(base_url, page_start, page_end):
+    all_recipe_items = []
+    for page in range(page_start, page_end + 1):
+        url = f"{base_url}&page={page}"
+        recipe_items = get_recipe_items(url)
+        all_recipe_items.extend(recipe_items)
+    return all_recipe_items
+
+def get_recipe_items_for_range(base_url, page_start, page_end):
+    all_recipe_items = []
+    for page in range(page_start, page_end + 1):
+        url = f"{base_url}&page={page}"
+        recipe_items = get_recipe_items(url)
+        all_recipe_items.extend(recipe_items)
+    return all_recipe_items
