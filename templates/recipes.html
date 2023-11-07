@@ -1,0 +1,18 @@
+<!-- templates/recipes.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipe Items</title>
+</head>
+<body>
+    <h1>Recipe Items</h1>
+    <ul>
+        {% for item in recipe_items %}
+            <li>
+                {{ item.prettify() | safe }}
+            </li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
