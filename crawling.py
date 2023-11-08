@@ -18,6 +18,10 @@ def get_recipe_detail(recipe_id):
         ingredients2 = [li.text for li in soup.select('.ready_ingre3 ul:nth-child(2) li')]
         steps = soup.select('.view_step_cont')
         descriptions = [step.select_one('.media-body').text.strip() for step in steps]
+        print([li.text for li in soup.select('.cont_ingre2 div:nth-of-type(1) .case1 li')])
+        print([li.text for li in soup.select('.cont_ingre2 div:nth-of-type(2) .case1 li')])
+        print([li.text for li in soup.select('.cont_ingre2 div:nth-of-type(3) .case1 li')])
+        print([li.text for li in soup.select('.cont_ingre2 div:nth-of-type(4) .case1 li')])
 
         recipe_detail = {
             'title': title,
